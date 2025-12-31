@@ -4,7 +4,7 @@ import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import FilterButtons from './components/FilterButtons';
 
-const API_URL = 'http://localhost:8000/api/todos';
+const API_URL ="https://todo-list-2-cmg2.onrender.com";
 
 function App() {
   const [tasks, setTasks] = useState([]);
