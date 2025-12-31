@@ -10,7 +10,7 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://your-frontend-url.onrender.com"],
+    origin: ["http://localhost:5173", "https://todo-list-frontend17.onrender.com/"],
     credentials: true,
   })
 );
