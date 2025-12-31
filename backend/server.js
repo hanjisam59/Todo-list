@@ -10,27 +10,28 @@ connectDB();
 const app = express();
 
 app.use(cors({
-    origin: ["https://your-frontend-url.onrender.com"],
+    origin: ["http://localhost:5173", "https://your-frontend-url.onrender.com"],
     credentials: true,
-  }));
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: true }));
+  })
+);
 
-// Test Route
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Health check route
 app.get("/", (req, res) => {
-    res.json({
-      success: true,
-      message: "API is running and MongoDB is connected!",
-      timestamp: new Date().toISOString(),
-    });
+  res.json({
+    success: true,
+    message: "API is running and MongoDB is connected!",
+    timestamp: new Date().toISOString(),
+  });
 });
 
-// Todo Routes
+// Routes
 app.use("/api/todos", todoRoutes);
 
+// Start server
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📱 Frontend URL: http://localhost:5173`);
-  console.log(`🔗 API URL: http://localhost:${PORT}`);
 });
